@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <table class="table table-bordered table-striped">
+        <tbody>
+            <tr th:each="tempJournals: ${journals}">
+                 <td th:text="${tempJournals.title}"/>
+                 <td th:text="${tempJournals.description}"/>
+
+             <td>
+                 <form action="" th:action="@{/journals/delete}" method="post">
+                    <input type="hidden" name="journal_id" th:value="${tempJournals.journal_id}" />
+                    <button type="submit" class="btn btn-danger btn-sm"
+                            onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
+                        Delete
+                    </button>
+                </form>
+             </td>
+
+
+                <td>
+                    <form action="" th:action="@{/journals/update}" method="post">
+                        <input type="hidden" name="journal_id" th:value="${tempJournals.journal_id}" />
+                        <button type="submit" class="btn btn-danger btn-sm"
+                                onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
+                            Update
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+            <table />
+            <a th:href="@{/journals/journal_form}">
+                <button>
+                    HomePage
+                </button>
+            </a>
+    </div>
+</body>
+</html>
