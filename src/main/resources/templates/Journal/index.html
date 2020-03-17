@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SaveJournal</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+        <div class="container">
+            <p class="h4 mb-4">Journal</p>
+            <form action="#" th:action="@{/journals/save}"
+                     th:object="${journal}" method="POST">
+
+                                <input type="hidden" th:field="*{journal_id}" />
+
+                                <input type="text" th:field="*{title}"
+                                       class="form-control mb-4 col-4" placeholder="title">
+
+                            <label for="exampleFormControlTextarea1">Description</label>
+                                <textarea class="form-control mb-4 col-4" id="exampleFormControlTextarea1" rows="3" th:field="*{description}"></textarea>
+
+                                <button type="submit" class="btn btn-info col-2">Save</button>
+
+            </form>
+<!--            <form action="#" th:action="@{/journal/save}"-->
+<!--                  th:object="${journal}" method="POST">-->
+
+<!--                &lt;!&ndash; Add hidden form field to handle update &ndash;&gt;-->
+<!--                <input type="hidden" th:field="*{id}" />-->
+
+<!--                <input type="text" th:field="*{title}"-->
+<!--                       class="form-control mb-4 col-4" placeholder="First name">-->
+
+<!--                <input type="text" th:field="*{description}"-->
+<!--                       class="form-control mb-4 col-4" placeholder="Last name">-->
+
+<!--                <button type="submit" class="btn btn-info col-2">Save</button>-->
+
+<!--            </form>-->
+
+            <hr>
+
+        </div>
+</body>
+</html>
